@@ -22,7 +22,7 @@ import java.util.Map;
 public class ReactAssetsManager extends BaseAction implements ICancelListener, IConfirmListener {
 
     private JFrame mDialog;
-    private static final String configName = "resources.json";
+    private static final String configName = "react_assets_manager.json";
     private static final String configResourcesDir = "resourcesDir";
     private static final String configResourcesService = "resourcesService";
     private static final String defaultResourcesDir = "/src/res/";
