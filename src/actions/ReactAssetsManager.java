@@ -8,12 +8,12 @@ import icons.Icons;
 import listener.ICancelListener;
 import listener.IConfirmListener;
 import utils.ConfigUtil;
+import utils.LinkUtil;
 import utils.NotificationUtil;
 import utils.PathUtil;
 
 import javax.swing.*;
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -22,7 +22,7 @@ import java.util.Map;
 public class ReactAssetsManager extends BaseAction implements ICancelListener, IConfirmListener {
 
     private JFrame mDialog;
-    private static final String configName = "react_resources.json";
+    private static final String configName = "resources.json";
     private static final String configResourcesDir = "resourcesDir";
     private static final String configResourcesService = "resourcesService";
     private static final String defaultResourcesDir = "/src/res/";
@@ -65,8 +65,9 @@ public class ReactAssetsManager extends BaseAction implements ICancelListener, I
                     "\n" +
                     "export default " +
                     createResourcesJs("", PathUtil.relativePath(mResourcesService, mResourcesDir), "", files));
+            LinkUtil.refreshFile(currentProject, mResourcesService);
             NotificationUtil.showInfoNotification(currentProject, "Create Resources File Success");
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
             NotificationUtil.showErrorNotification(currentProject, "Create Resources File Fail");
         }

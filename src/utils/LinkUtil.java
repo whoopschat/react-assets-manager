@@ -1,6 +1,9 @@
 package utils;
 
+import com.intellij.openapi.fileEditor.FileEditorManager;
+import com.intellij.openapi.project.Project;
 import com.intellij.openapi.util.SystemInfo;
+import com.intellij.openapi.vfs.VirtualFile;
 
 import java.awt.*;
 import java.io.IOException;
@@ -27,13 +30,38 @@ public final class LinkUtil {
                 }
                 if (desktop != null)
                     desktop.browse(uri);
-            } catch (IOException ioe) {
-                ioe.printStackTrace();
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     }
 
+    public static void openFile(Project project, String filename) {
+        try {
+            VirtualFile virtualFile = project.getBaseDir();
+            if (virtualFile != null) {
+                virtualFile = virtualFile.findFileByRelativePath(filename);
+            }
+            if (virtualFile != null) {
+                FileEditorManager.getInstance(project).openFile(virtualFile, true);
+                virtualFile.refresh(true, true);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
+    public static void refreshFile(Project project, String filename) {
+        try {
+            VirtualFile virtualFile = project.getBaseDir();
+            if (virtualFile != null) {
+                virtualFile = virtualFile.findFileByRelativePath(filename);
+            }
+            if (virtualFile != null) {
+                virtualFile.refresh(true, true);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

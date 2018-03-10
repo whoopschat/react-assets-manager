@@ -10,10 +10,6 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Utils for find some dirs.
- * Created by beansoft on 2017/3/14.
- */
 public class ConfigUtil {
 
     private static String _IDEA_DIR = ".idea" + File.separator;
@@ -22,8 +18,12 @@ public class ConfigUtil {
     public static void initConfigFromFile(Project project, String configName, Map map) {
         String path = project.getBasePath();
         File ideaFolder = new File(path, _IDEA_DIR);
+        boolean flag = true;
         if (!ideaFolder.exists()) {
-            ideaFolder.mkdirs();
+            flag = ideaFolder.mkdirs();
+        }
+        if (!flag) {
+            return;
         }
         try {
             File file = new File(path, _IDEA_DIR + configName);
@@ -44,12 +44,12 @@ public class ConfigUtil {
         }
     }
 
-    public static void saveConfigFromFile(Project project, String configName, String key, String jsAppPath) {
+    public static void saveConfigFromFile(Project project, String configName, String key, String value) {
         String path = project.getBasePath();
         File file = new File(path, _IDEA_DIR + configName);
         try {
             Map m = new HashMap();
-            m.put(key, jsAppPath);
+            m.put(key, value);
             String json = new Gson().toJson(m, Map.class);
             FileUtil.writeToFile(file, json);
         } catch (IOException e) {
