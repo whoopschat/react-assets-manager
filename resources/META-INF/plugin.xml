@@ -1,0 +1,41 @@
+<idea-plugin>
+    <id>com.github.whoopschat.react_assets_manager</id>
+    <name>React Assets Manager</name>
+    <version>1.0</version>
+    <vendor email="whoopschat@qq.com" url="http://whoopschat.github.com">WhoopsChat</vendor>
+
+    <description><![CDATA[
+    react assets manager<br/>
+    ]]></description>
+
+    <change-notes><![CDATA[
+    1.0 first version<br/>
+    ]]>
+    </change-notes>
+
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+    <idea-version since-build="173.0"/>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <!-- uncomment to enable plugin in all products
+    <depends>com.intellij.modules.lang</depends>
+    -->
+
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+    </extensions>
+
+    <actions>
+        <action id="Plugin_ReactAssetsManager_Show" class="actions.ReactAssetsManager"
+                text="React Assets Manager" description="React Assets Manager">
+            <add-to-group group-id="MainToolBar" anchor="last"/>
+            <add-to-group group-id="ToolsMenu" anchor="first"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="shift ctrl BACK_SLASH"/>
+        </action>
+    </actions>
+
+</idea-plugin>
