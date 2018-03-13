@@ -6,7 +6,7 @@ An IDEA/WebStorm/Android Studio Plugin for React Assets Manager
 The plug-in can automatically generate resources.js files from the res directory
 
 * click `tool menu` `React Assets Manager` open manager dialog
-* input `Resources Folder` and `Export Resources File` e.g `/src/res  => resources.js`
+* input `Resources Folder` and `Export Resources File`
 * click `confirm` Export Resources File
 
 ```
@@ -29,7 +29,4 @@ export default {
 	}
 }
 ```
-
-start plugin:
-`tool menu` => `React`
 
