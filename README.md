@@ -7,11 +7,11 @@ The plug-in can automatically generate resources.js files from the res directory
 
 * download [React Assets Manager Plugin](https://github.com/whoopschat/react-assets-manager/blob/master/react-assets-manager.jar?raw=true) and install
 
-* click `tool menu` `React Assets Manager` open manager dialog
+* click `tool menu` - `React Assets Manager` open manager dialog
 * input `Resources Folder` and `Export Resources File`
 * click `confirm` Export Resources File
 
-```
+```javascript
 'use strict';
 
 export default {
