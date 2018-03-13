@@ -168,7 +168,7 @@ public class ReactAssetsManager extends BaseAction implements ICancelListener, I
 
     private String fixName(String name) {
         if (name.indexOf(".") > 0) {
-            return name.substring(0, name.indexOf("."));
+            return name.substring(0, name.lastIndexOf(".")).replaceAll("\\.", "_");
         }
         return name;
     }
